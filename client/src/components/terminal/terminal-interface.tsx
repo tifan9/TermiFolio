@@ -121,7 +121,7 @@ export default function TerminalInterface() {
         
       case '/cv':
         try {
-          const cvData = await queryClient.fetchQuery({ queryKey: ['/api/cv'] });
+          const cvData = await queryClient.fetchQuery({ queryKey: ['/api/cv'] }) as any;
           let cvOutput = `<div class="text-terminal-blue text-lg mb-3">${cvData.name} - CV</div>`;
           cvOutput += `<div class="mb-3"><span class="text-terminal-green">Contact:</span> ${cvData.contact.email} | ${cvData.contact.phone}</div>`;
           
@@ -156,7 +156,7 @@ export default function TerminalInterface() {
         
       case '/profiles':
         try {
-          const profiles = await queryClient.fetchQuery({ queryKey: ['/api/profiles'] });
+          const profiles = await queryClient.fetchQuery({ queryKey: ['/api/profiles'] }) as any;
           let profilesOutput = '<div class="text-terminal-blue mb-2">Social Media Profiles:</div>';
           Object.entries(profiles).forEach(([platform, url]) => {
             profilesOutput += `<div class="mb-1">• <a href="${url}" target="_blank" class="text-terminal-green hover:underline">${platform}</a></div>`;
@@ -178,7 +178,7 @@ export default function TerminalInterface() {
         
       case '/journal':
         try {
-          const entries = await queryClient.fetchQuery({ queryKey: ['/api/journal'] });
+          const entries = await queryClient.fetchQuery({ queryKey: ['/api/journal'] }) as any[];
           let journalOutput = '<div class="text-terminal-blue mb-3">Recent Journal Entries:</div>';
           entries.forEach((entry: any) => {
             journalOutput += `<div class="mb-4 pl-4 border-l-2 border-terminal-green">`;
@@ -297,14 +297,14 @@ export default function TerminalInterface() {
   return (
     <div className="h-full flex flex-col">
       {/* Terminal Title Bar */}
-      <div className="terminal-gray border-b border-gray-600 px-4 py-2 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+      <div className="terminal-gray border-b border-gray-600 px-2 sm:px-4 py-2 flex items-center justify-between">
+        <div className="flex items-center space-x-1 sm:space-x-2">
+          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
         </div>
-        <div className="text-sm text-gray-400">sophie@portfolio:~</div>
-        <div className="w-16"></div>
+        <div className="text-xs sm:text-sm text-gray-400">sophie@portfolio:~</div>
+        <div className="w-8 sm:w-16"></div>
       </div>
 
       {/* Terminal Content */}
@@ -312,23 +312,28 @@ export default function TerminalInterface() {
         {/* Output Area */}
         <div 
           ref={outputRef}
-          className="flex-1 overflow-y-auto p-4 space-y-1 terminal-scrollbar"
+          className="flex-1 overflow-y-auto p-2 sm:p-4 space-y-1 terminal-scrollbar"
           data-testid="terminal-output"
         >
           {/* Welcome Message */}
           <div className="mb-4">
-            <div className="text-terminal-green mb-2">
+            <div className="text-terminal-green mb-2 text-sm sm:text-base hidden sm:block">
               ╭─ Welcome to Sophie Uwase's Portfolio Terminal ─╮
             </div>
-            <Typewriter 
-              text="Hello! I'm Sophie, a passionate Web Developer and IT Professional from Rwanda."
-              className="text-terminal-blue mb-2"
-              speed={50}
-            />
-            <div className="text-terminal-green mb-4">
+            <div className="text-terminal-green mb-2 text-sm sm:hidden">
+              ─ Sophie Uwase's Portfolio ─
+            </div>
+            <div className="mb-2">
+              <Typewriter 
+                text="Hello! I'm Sophie, a passionate Web Developer and IT Professional from Rwanda."
+                className="text-terminal-blue text-sm sm:text-base"
+                speed={80}
+              />
+            </div>
+            <div className="text-terminal-green mb-4 text-sm sm:text-base hidden sm:block">
               ╰─────────────────────────────────────────────────╯
             </div>
-            <div className="text-gray-400 text-sm mb-4">
+            <div className="text-gray-400 text-xs sm:text-sm mb-4">
               Type <span className="text-terminal-blue">/help</span> to see available commands, or start typing to see suggestions.
             </div>
           </div>
@@ -337,7 +342,7 @@ export default function TerminalInterface() {
           {output.map((item) => (
             <div 
               key={item.id} 
-              className={item.className}
+              className={`${item.className} text-xs sm:text-sm break-words`}
               dangerouslySetInnerHTML={{ __html: item.content }}
             />
           ))}
@@ -355,9 +360,9 @@ export default function TerminalInterface() {
         )}
 
         {/* Input Area */}
-        <div className="border-t border-gray-600 p-4">
+        <div className="border-t border-gray-600 p-2 sm:p-4">
           <div className="flex items-center">
-            <span className="text-terminal-green mr-2">sophie@portfolio:~$</span>
+            <span className="text-terminal-green mr-1 sm:mr-2 text-xs sm:text-sm flex-shrink-0">sophie@portfolio:~$</span>
             <div className="flex-1 relative">
               <input 
                 ref={inputRef}
@@ -365,12 +370,11 @@ export default function TerminalInterface() {
                 value={input}
                 onChange={handleInputChange}
                 onKeyDown={handleKeyDown}
-                className="bg-transparent border-none outline-none text-terminal-text w-full font-mono"
+                className="bg-transparent border-none outline-none text-terminal-text w-full font-mono text-xs sm:text-sm"
                 autoComplete="off"
                 placeholder="Type a command..."
                 data-testid="terminal-input"
               />
-              <span className="absolute text-terminal-blue animate-blink pointer-events-none">|</span>
             </div>
           </div>
         </div>

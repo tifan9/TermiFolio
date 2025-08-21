@@ -10,17 +10,25 @@ interface AutoSuggestionsProps {
 const AutoSuggestions = forwardRef<HTMLDivElement, AutoSuggestionsProps>(
   ({ commands, commandDescriptions, onSelect, inputRef }, ref) => {
     const [position, setPosition] = useState({ left: 0, bottom: 0, width: 0 });
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 640);
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
       if (inputRef.current) {
         const inputRect = inputRef.current.getBoundingClientRect();
         setPosition({
-          left: inputRect.left,
+          left: isMobile ? 8 : inputRect.left,
           bottom: window.innerHeight - inputRect.top + 10,
-          width: inputRect.width
+          width: isMobile ? window.innerWidth - 16 : Math.max(inputRect.width, 300)
         });
       }
-    }, [inputRef, commands]);
+    }, [inputRef, commands, isMobile]);
 
     if (commands.length === 0) return null;
 
@@ -38,11 +46,17 @@ const AutoSuggestions = forwardRef<HTMLDivElement, AutoSuggestionsProps>(
         {commands.map(cmd => (
           <div
             key={cmd}
-            className="px-3 py-2 hover:bg-gray-700 cursor-pointer text-terminal-green transition-colors"
+            className="px-2 sm:px-3 py-2 hover:bg-gray-700 cursor-pointer text-terminal-green transition-colors"
             onClick={() => onSelect(cmd)}
             data-testid={`suggestion-${cmd.replace('/', '')}`}
           >
-            {cmd} <span className="text-gray-400 text-sm">- {commandDescriptions[cmd]}</span>
+            <div className="flex flex-col sm:flex-row sm:items-center">
+              <span className="font-mono text-sm">{cmd}</span>
+              <span className="text-gray-400 text-xs sm:text-sm sm:ml-2">
+                {isMobile ? '' : '- '}
+                {commandDescriptions[cmd]}
+              </span>
+            </div>
           </div>
         ))}
       </div>
