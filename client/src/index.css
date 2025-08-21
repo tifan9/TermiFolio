@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(215, 27.9%, 8.6%);
+  --foreground: hsl(201, 27%, 81%);
+  --card: hsl(217, 19%, 15%);
+  --card-foreground: hsl(201, 27%, 81%);
+  --popover: hsl(217, 19%, 15%);
+  --popover-foreground: hsl(201, 27%, 81%);
+  --primary: hsl(210, 100%, 66%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(217, 19%, 15%);
+  --secondary-foreground: hsl(201, 27%, 81%);
+  --muted: hsl(217, 19%, 15%);
+  --muted-foreground: hsl(215, 20%, 60%);
+  --accent: hsl(217, 19%, 15%);
+  --accent-foreground: hsl(210, 100%, 66%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(217, 36%, 25%);
+  --input: hsl(217, 36%, 25%);
+  --ring: hsl(210, 100%, 66%);
+  --terminal-bg: hsl(215, 27.9%, 8.6%);
+  --terminal-text: hsl(201, 27%, 81%);
+  --terminal-blue: hsl(210, 100%, 66%);
+  --terminal-green: hsl(139, 73%, 46%);
+  --terminal-purple: hsl(270, 73%, 67%);
+  --terminal-red: hsl(0, 84%, 60%);
+  --terminal-gray: hsl(217, 19%, 15%);
+  --font-mono: 'JetBrains Mono', 'Monaco', 'Consolas', monospace;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(215, 27.9%, 8.6%);
+  --foreground: hsl(201, 27%, 81%);
+  --card: hsl(217, 19%, 15%);
+  --card-foreground: hsl(201, 27%, 81%);
+  --popover: hsl(217, 19%, 15%);
+  --popover-foreground: hsl(201, 27%, 81%);
+  --primary: hsl(210, 100%, 66%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(217, 19%, 15%);
+  --secondary-foreground: hsl(201, 27%, 81%);
+  --muted: hsl(217, 19%, 15%);
+  --muted-foreground: hsl(215, 20%, 60%);
+  --accent: hsl(217, 19%, 15%);
+  --accent-foreground: hsl(210, 100%, 66%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(217, 36%, 25%);
+  --input: hsl(217, 36%, 25%);
+  --ring: hsl(210, 100%, 66%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-mono antialiased;
+  }
+}
+
+/* Custom terminal animations */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-10px); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-blink {
+  animation: blink 1s linear infinite;
+}
+
+.animate-typing {
+  animation: typing 3s steps(40, end);
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--terminal-blue);
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Terminal specific styles */
+.terminal-bg {
+  background-color: var(--terminal-bg);
+}
+
+.terminal-text {
+  color: var(--terminal-text);
+}
+
+.terminal-blue {
+  color: var(--terminal-blue);
+}
+
+.terminal-green {
+  color: var(--terminal-green);
+}
+
+.terminal-purple {
+  color: var(--terminal-purple);
+}
+
+.terminal-red {
+  color: var(--terminal-red);
+}
+
+.terminal-gray {
+  background-color: var(--terminal-gray);
+}
+
+/* Scrollbar styling */
+.terminal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-track {
+  background: var(--terminal-bg);
+}
+
+.terminal-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--terminal-gray);
+  border-radius: 4px;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--border);
+}
