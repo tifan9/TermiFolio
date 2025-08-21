@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "vite build",
+  "buildCommand": "npm run build",
   "outputDirectory": "client/dist",
   "functions": {
-    "server/routes.ts": {
+    "api/server.ts": {
       "runtime": "nodejs18.x"
     }
   },
@@ -14,7 +14,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/client/dist/$1"
+      "destination": "/$1"
     }
   ]
 }
