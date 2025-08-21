@@ -1,0 +1,126 @@
+{
+  "name": "Sophie Uwase",
+  "contact": {
+    "phone": "+250783199810",
+    "email": "uwasesophie101@gmail.com"
+  },
+  "experience": [
+    {
+      "role": "Field Support Officer",
+      "organization": "International Organization for Migration (IOM)",
+      "location": "Kigali, Rwanda",
+      "period": "Jan 2025 - Apr 2025",
+      "achievements": [
+        "Assisted in logistical coordination, data collection, and reporting to support program implementation.",
+        "Collaborated with teams to resolve operational challenges, leveraging IT skills to troubleshoot technical issues in field settings.",
+        "Provided critical field support for operations in Kigali, ensuring compliance with IOM policies and procedures."
+      ]
+    },
+    {
+      "role": "IT Support",
+      "organization": "Career Access Africa",
+      "location": "Kigali, Rwanda",
+      "period": "May 2024 – Sept 2024",
+      "achievements": [
+        "Designed, developed, and launched a user-friendly website tailored to meet Career Access Africa's branding and functional needs.",
+        "Monitored network and system performance, identifying and resolving anomalies to ensure high availability.",
+        "Oversaw IT infrastructure development, implementation, and maintenance for CAA.",
+        "Provided strategic oversight for IT operations, including hardware, network configuration, and compliance with IT policies."
+      ]
+    },
+    {
+      "role": "Web Developer",
+      "organization": "Kigali Adventist Dental Clinic (KADC)",
+      "location": "Kigali, Rwanda",
+      "period": "Apr 2022 – Oct 2024",
+      "achievements": [
+        "Designed and developed a dynamic website for the clinic to enhance its online presence, including appointment booking and SEO.",
+        "Resolved various technical issues, from hardware/software troubleshooting to ensuring uptime and reliability.",
+        "Implemented system monitoring processes, improving uptime and issue resolution speed.",
+        "Documented system configurations, troubleshooting processes, and security protocols."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Networks and Communication Systems",
+      "institution": "Adventist University of Central Africa (AUCA)",
+      "location": "Kigali, Rwanda",
+      "period": "Jan 2021 - Feb 2025",
+      "courses": [
+        "Linux Administration",
+        "Network Administration",
+        "Network Security",
+        "Java Programming",
+        "Web Design",
+        "Web Technology",
+        "Cloud Technologies"
+      ]
+    },
+    {
+      "program": "Frontend Development",
+      "institution": "Solvit Africa",
+      "location": "Kigali, Rwanda",
+      "period": "Jul - Sept 2025"
+    },
+    {
+      "program": "Bridge Program (work readiness training)",
+      "institution": "Harambee",
+      "location": "Kigali, Rwanda",
+      "period": "Oct - Dec 2024"
+    },
+    {
+      "certificate": "Advanced Network Operations",
+      "institution": "Internet Society",
+      "location": "Kigali, Rwanda",
+      "period": "Sept - Oct 2024"
+    },
+    {
+      "certificate": "Linux Administration",
+      "institution": "Cisco Academy",
+      "location": "Kigali, Rwanda",
+      "period": "Sept - Dec 2022"
+    },
+    {
+      "bootcamp": "Cyber Security",
+      "institution": "Shield Tech Hub",
+      "location": "Kigali, Rwanda",
+      "period": "2021"
+    }
+  ],
+  "skills": {
+    "technical": [
+      "Web development (HTML, CSS, PHP, Java, JavaScript)",
+      "MySQL Database",
+      "Computer Maintenance",
+      "Network Configuration",
+      "Troubleshooting",
+      "Network Security",
+      "Server Management"
+    ],
+    "soft": [
+      "Teamwork",
+      "Time Management",
+      "Problem-Solving",
+      "Active Listening",
+      "Communication Skills",
+      "Adaptability"
+    ],
+    "languages": ["Kinyarwanda (Fluent)", "English (Fluent)"]
+  },
+  "references": [
+    {
+      "name": "Iraturagiye Emmanuella",
+      "role": "Operations Manager",
+      "organization": "Career Access Africa",
+      "phone": "+250784046464"
+    },
+    {
+      "name": "Ishimwe Pacifique",
+      "role": "Facilitator",
+      "organization": "SheCanCode",
+      "email": "ishimwepacifique0@gmail.com",
+      "phone": "+250787334843"
+    }
+  ]
+}

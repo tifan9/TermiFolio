@@ -1,0 +1,51 @@
+Build me a personal portfolio website as a fun, interactive terminal-style UI using React.js for the frontend and Python (Flask or FastAPI) for the backend. The backend should be minimal and allow easy integration of simple AI functionality.
+
+Requirements:
+
+UI Design (Terminal Theme):
+
+The website should look like a terminal interface.
+
+When a visitor types /help, it should show a list of available commands (e.g., /cv, /coverletter, /profiles, /journal, /contact, /clear).
+
+Font colors: blue-600 and black for base text, with terminal lines styled in white and green.
+
+Use a monospace font to make it authentic.
+
+Content and Features:
+
+CV & Cover Letter: Store my CV information in a structured cv.json file. The /cv command should fetch and display details from this file.
+
+Intro Video: Add a /intro command that plays a short video about me (use a placeholder file for now).
+
+Online Profiles: Add a /profiles command that lists clickable links to my GitHub and other profiles (Behance, Kaggle, Zindi, HuggingFace).
+
+Contact Form: Add a /contact command that opens a form to send me a message. Protect it with a simple arithmetic CAPTCHA (e.g., “2 + 3 = ?”).
+
+Reflection Journal: Add a /journal command that displays blog-style posts stored in a JSON file (each post with a title, date, and content).
+
+AI Functionality:
+
+Include a simple AI-powered Q&A feature via a /ask command.
+
+The AI doesn’t need to be heavy — it can use a rule-based system or a lightweight API integration (e.g., HuggingFace inference API or a local JSON knowledge lookup).
+
+Example: if someone types /ask what is your experience?, the backend can match it to my CV JSON and return an answer.
+
+Stack and Tech Notes:
+
+Frontend: React.js with Tailwind CSS for styling.
+
+Backend: Python (FastAPI preferred for clean API endpoints).
+
+Use REST endpoints to fetch CV, profiles, journal entries, and AI responses.
+
+Make sure everything is modular and no placeholder logic is left broken.
+
+Quality Requirements:
+
+Code must be well-structured, clean, and error-free.
+
+Avoid hallucinations: if something isn’t specified, ask for clarification instead of inventing.
+
+Use comments in code to explain key parts for easy modification later.
