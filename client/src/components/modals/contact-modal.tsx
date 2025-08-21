@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -57,6 +57,9 @@ export default function ContactModal({
       <DialogContent className="terminal-gray border-gray-600 text-terminal-text max-w-md mx-4 sm:mx-auto">
         <DialogHeader>
           <DialogTitle className="text-terminal-blue text-lg sm:text-xl">Contact Sophie</DialogTitle>
+          <DialogDescription className="text-gray-400">
+            Send a message to Sophie. Please solve the CAPTCHA to prevent spam.
+          </DialogDescription>
         </DialogHeader>
         
         <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
