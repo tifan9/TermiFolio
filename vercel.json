@@ -1,21 +1,9 @@
 {
-  "version": 2,
-  "buildCommand": "npm run build",
+  "buildCommand": "vite build",
   "outputDirectory": "dist/public",
-  "builds": [
-    {
-      "src": "api/server.ts",
-      "use": "@vercel/node"
+  "functions": {
+    "api/*.ts": {
+      "runtime": "nodejs20.x"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/server.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ]
+  }
 }
