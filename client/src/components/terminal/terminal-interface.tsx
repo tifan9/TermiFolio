@@ -202,7 +202,7 @@ export default function TerminalInterface() {
           const question = command.substring(5).trim();
           try {
             const response = await askMutation.mutateAsync(question);
-            addOutput(`<div class="text-terminal-blue mb-2">AI Assistant:</div><div class="pl-4">${response.response}</div>`, 'mb-4');
+            addOutput(`<div class="text-terminal-blue mb-2">Sophie's Assistant:</div><div class="pl-4">${response.response}</div>`, 'mb-4');
           } catch (error) {
             addOutput('<div class="text-terminal-red">Failed to process question</div>', 'mb-4');
           }
@@ -325,7 +325,7 @@ export default function TerminalInterface() {
             </div>
             <div className="mb-2">
               <Typewriter 
-                text="Hello! I'm Sophie, a passionate Web Developer and IT Professional from Rwanda."
+                text="Hello! I'm Sophie, a passionate IT Professional from Rwanda."
                 className="text-terminal-blue text-sm sm:text-base"
                 speed={80}
               />

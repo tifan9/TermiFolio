@@ -213,7 +213,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           return res.json(storage.journalEntries);
         } else if (path === 'profiles') {
           const profiles = {
-            'GitHub': 'https://github.com/sophieuwase',
+            'GitHub': 'https://github.com/tifan9',
             'LinkedIn': 'https://linkedin.com/in/sophieuwase',
             'Behance': 'https://behance.net/sophieuwase',
             'Kaggle': 'https://kaggle.com/sophieuwase',
