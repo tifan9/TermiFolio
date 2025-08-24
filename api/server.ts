@@ -202,7 +202,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const { url, method } = req;
-  const path = url?.replace('/api/', '') || '';
+  const path = url?.replace('/api/', '').replace(/^\//,'') || '';
 
   try {
     switch (method) {
